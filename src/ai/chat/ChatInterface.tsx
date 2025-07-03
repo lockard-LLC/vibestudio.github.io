@@ -166,7 +166,7 @@ export const ChatInterface: React.FC = () => {
           </div>
           
           <div className="flex-1 overflow-auto">
-            {sessions.map((session) => (
+            {sessions.map((session: any) => (
               <div
                 key={session.id}
                 onClick={() => selectSession(session.id)}
@@ -361,7 +361,7 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({ message, on
           } ${isUser ? 'prose-white' : ''}`}>
             <ReactMarkdown
               components={{
-                code({ inline, className, children, ...props }: any) {
+                code: ({ inline, className, children, ...props }: any) => {
                   const match = /language-(\w+)/.exec(className || '')
                   const language = match ? match[1] : ''
                   
@@ -381,7 +381,7 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({ message, on
                           </button>
                         </div>
                         <SyntaxHighlighter
-                          style={theme === 'dark' ? oneDark : oneLight}
+                          style={theme === 'dark' ? oneDark : oneLight as any}
                           language={language}
                           PreTag="div"
                           {...props}
@@ -449,7 +449,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ onClose }) => {
     availableModels,
     providers,
     setSelectedModel,
-    updateProviderConnection
+    updateProviderConnection: _
   } = useAIChatStore()
 
   return (
@@ -478,7 +478,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ onClose }) => {
             }}
             className="w-full px-3 py-2 bg-primary border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm"
           >
-            {availableModels.map((model) => (
+            {availableModels.map((model: any) => (
               <option key={model.id} value={model.id}>
                 {model.name} - {model.description}
               </option>
@@ -498,7 +498,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ onClose }) => {
             Providers
           </label>
           <div className="space-y-2">
-            {providers.map((provider) => (
+            {providers.map((provider: any) => (
               <div
                 key={provider.id}
                 className="flex items-center justify-between p-3 bg-primary rounded-lg border border-border"
