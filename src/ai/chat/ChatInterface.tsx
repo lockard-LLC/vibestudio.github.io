@@ -9,7 +9,6 @@ import {
   Settings,
   Plus,
   Trash2,
-  MessageSquare,
   Zap,
   Brain
 } from 'lucide-react'
@@ -362,7 +361,7 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({ message, on
           } ${isUser ? 'prose-white' : ''}`}>
             <ReactMarkdown
               components={{
-                code({ node, inline, className, children, ...props }) {
+                code({ inline, className, children, ...props }: any) {
                   const match = /language-(\w+)/.exec(className || '')
                   const language = match ? match[1] : ''
                   
