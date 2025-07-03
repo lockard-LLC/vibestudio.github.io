@@ -1,0 +1,216 @@
+/* VibeStudio Animation System */
+
+/* GPU Acceleration Utilities */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.smooth-transition {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.spring-bounce {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Stagger Animation Delays */
+.stagger-delay-1 { transition-delay: 50ms; }
+.stagger-delay-2 { transition-delay: 100ms; }
+.stagger-delay-3 { transition-delay: 150ms; }
+.stagger-delay-4 { transition-delay: 200ms; }
+.stagger-delay-5 { transition-delay: 250ms; }
+
+/* Professional IDE Animations */
+.fade-slide-in {
+  animation: fadeSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.fade-slide-out {
+  animation: fadeSlideOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Tab Close Animation */
+.tab-closing {
+  animation: tabClose 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes tabClose {
+  from {
+    opacity: 1;
+    transform: scaleX(1);
+    max-width: 200px;
+  }
+  to {
+    opacity: 0;
+    transform: scaleX(0);
+    max-width: 0;
+  }
+}
+
+/* Activity Bar Hover Effects */
+.activity-item {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-item:hover {
+  transform: translateX(2px) scale(1.02);
+}
+
+.activity-item:active {
+  transform: translateX(1px) scale(0.98);
+}
+
+/* Panel Resize Handle */
+.resize-handle {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resize-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resize-handle:hover::before {
+  opacity: 0.5;
+}
+
+.resize-handle.dragging::before {
+  opacity: 1;
+}
+
+/* Theme Toggle Animation */
+.theme-toggle {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-indicator {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 25%,
+    var(--color-divider) 50%,
+    var(--color-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Tooltip Animation */
+.tooltip {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus Animations */
+.focus-ring {
+  box-shadow: 0 0 0 2px var(--color-accent);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Smooth scrolling */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .smooth-transition,
+  .spring-bounce,
+  .activity-item,
+  .tab-closing,
+  .fade-slide-in,
+  .fade-slide-out,
+  .skeleton {
+    animation: none;
+    transition: none;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: auto;
+  }
+}

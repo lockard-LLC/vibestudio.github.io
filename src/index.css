@@ -1,0 +1,132 @@
+/* src/index.css */
+/* Import Animation System */
+@import './ui/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Light Mode Colors */
+  --color-primary: #FFFFFF;
+  --color-secondary: #F8F9FA;
+  --color-accent: #007ACC;
+  --color-text-primary: #1E1E1E;
+  --color-text-secondary: #424242;
+  --color-text-muted: #6C6C6C;
+  --color-border: #E5E5E5;
+  --color-divider: #F0F0F0;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  --color-info: #007ACC;
+  
+  /* Interactive States */
+  --color-hover: rgba(0, 122, 204, 0.08);
+  --color-active: rgba(0, 122, 204, 0.12);
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Colors */
+  --color-primary: #0F0F0F;
+  --color-secondary: #1E1E1E;
+  --color-accent: #007ACC;
+  --color-text-primary: #CCCCCC;
+  --color-text-secondary: #9D9D9D;
+  --color-text-muted: #6D6D6D;
+  --color-border: #2B2B2B;
+  --color-divider: #343434;
+  --color-success: #4BB74A;
+  --color-warning: #FFCC02;
+  --color-error: #F44747;
+  --color-info: #007ACC;
+  
+  /* Interactive States */
+  --color-hover: rgba(255, 255, 255, 0.08);
+  --color-active: rgba(255, 255, 255, 0.12);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+/* Monaco Editor Styles */
+.monaco-editor {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace !important;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection Colors */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+::-moz-selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Button Reset */
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Modern Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth Hover Transitions */
+.interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .interactive:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
